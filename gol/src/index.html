@@ -1,9 +1,23 @@
-<html>
-<head>
-	<script type="text/javascript" src="js/angular.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="all">
-</head>
-<body>
-<h1>Game of Life</h1>
-</body>
+<html ng-app="gol">
+	<head>
+		<script type="text/javascript" src="js/angular.js"></script>
+		<script type="text/javascript" src="js/golui.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="all">
+		<link rel="stylesheet" type="text/css" href="css/gol.css" media="all">
+	</head>
+	<body>
+		<h1>Game of Life</h1>
+
+		<div ng-controller="golUiCtrl">
+			<table id="board" class="table-bordered">
+				<tbody>
+					<tr ng-repeat="row in rows">
+						<td  ng-repeat="column in row" ng-class="{alive: column.alive}" class="cell"
+							 ng-model="column" ng-click="switchState(column)"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<input type="button" class="btn-primary" value="iterate" />
+	</body>
 </html>
