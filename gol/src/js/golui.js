@@ -2,8 +2,6 @@ var golApp = angular.module('gol', []);
 
 golApp.controller('golUiCtrl', function ($scope)
 {
-	$scope.cellsAlive = 15;
-
 	$scope.rows = emptyBoard();
 
 	function emptyBoard()
